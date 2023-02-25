@@ -61,13 +61,25 @@ public class MsSqlConnector {
         }
     }
 
-    public ResultSet query(String query) throws Exception{
-        Statement statement = connection.createStatement();
-        return statement.executeQuery(query);
+    public ResultSet query(String query) {
+        try {
+            Statement statement = connection.createStatement();
+            return statement.executeQuery(query);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    public int execute(String command) throws Exception {
-        Statement statement = connection.createStatement();
-        return statement.executeUpdate(command);
+    public int execute(String command)  {
+        try {
+            Statement statement = connection.createStatement();
+            return statement.executeUpdate(command);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 }

@@ -42,13 +42,9 @@ public class AddTodo extends AppCompatActivity {
             Toast.makeText(this, "Todo title can not be empty", Toast.LENGTH_SHORT).show();
             return;
         }
-        try {
-            MsSqlConnector.getInstance().execute("INSERT INTO ToDo VALUES ('" + title + "','" + desc +"')");
-            Toast.makeText(this, "Successfully add new Todo", Toast.LENGTH_SHORT).show();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        MsSqlConnector.getInstance().execute("INSERT INTO ToDo VALUES ('" + title + "','" + desc +"', 0)");
+        Toast.makeText(this, "Successfully add new Todo", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     private void cancelEvent() {

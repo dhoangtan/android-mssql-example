@@ -8,9 +8,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dbconnection.R;
 import com.example.dbconnection.models.Todo;
+import com.example.dbconnection.services.MsSqlConnector;
 
 import java.util.List;
 
@@ -61,6 +63,16 @@ public class TodoAdapter extends BaseAdapter {
         Todo todo = (Todo) getItem(i);
         viewHolder.todoTitle.setText(todo.getTitle());
         viewHolder.todoDescription.setText(todo.getDescription());
+        viewHolder.doneButton.setOnClickListener(v -> {
+            MsSqlConnector.getInstance().execute("UPDATE ToDo SET state = 1 where id = " + todo.getId());
+            listTodo.remove(todo);
+            notifyDataSetChanged();
+        });
+        viewHolder.clearButton.setOnClickListener(v -> {
+            MsSqlConnector.getInstance().execute("DELETE FROM ToDo WHERE id = " + todo.getId());
+            listTodo.remove(todo);
+            notifyDataSetChanged();
+        });
         return view;
     }
 
@@ -70,4 +82,6 @@ public class TodoAdapter extends BaseAdapter {
         Button doneButton;
         Button clearButton;
     }
+
+
 }
