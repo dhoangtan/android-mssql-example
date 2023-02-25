@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DBConnection</string>
+    <string name="main_title">My Simple Todo App</string>
+    <string name="add_title">Add New Item</string>
+</resources>

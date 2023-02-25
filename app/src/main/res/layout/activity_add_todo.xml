@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    tools:context=".activities.AddTodo">
+
+    <TextView
+        android:id="@+id/add_todo_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:text="@string/add_title"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/add_todo_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/add_todo_ed_title"
+        app:layout_constraintEnd_toEndOf="@id/add_todo_tv_desc"
+
+        android:text="Todo Title:"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/add_todo_tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@+id/add_todo_tv_title"
+        app:layout_constraintBaseline_toBaselineOf="@+id/add_todo_ed_desc"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        android:layout_marginTop="10dp"
+
+        android:text="Todo Description:"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/add_todo_ed_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/add_todo_tv_title"
+
+        android:layout_marginStart="10dp"
+
+        android:textSize="20sp"
+        android:hint="Buy drugs"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/add_todo_ed_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@+id/add_todo_ed_title"
+        app:layout_constraintStart_toEndOf="@+id/add_todo_tv_desc"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+
+        android:textSize="20sp"
+        android:hint="At the drug store"
+        android:inputType="text"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/add_todo_ed_desc"
+        android:layout_marginTop="40dp">
+
+        <Button
+            android:id="@+id/add_todo_btn_cancel"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/baseline_remove_circle_outline_24"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"/>
+
+        <Button
+            android:id="@+id/add_todo_btn_confirm"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/baseline_check_circle_outline_24"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
